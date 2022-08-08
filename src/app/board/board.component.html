@@ -1,0 +1,17 @@
+<button (click)="startNewGame()">Start Game</button>
+<input type="number" [(ngModel)]="optionCount" />
+
+<h3>{{ turnCounter }}</h3>
+
+<h4>{{ correctItems | json }}</h4>
+
+<main>
+  <app-card
+    (emmiter)="makeMove($event)"
+    *ngFor="let item of items; let i = index"
+    [value]="item"
+    [index]="i"
+    [reveal]="isItRevealed(i)"
+    [found]="isItFound(i)"
+  ></app-card>
+</main>

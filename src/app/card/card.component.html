@@ -1,0 +1,4 @@
+<button *ngIf="!reveal" (click)="handleClick()" class="notInList"></button>
+<button [ngClass]="{ foundClass: found, notFoundClass: !found }" *ngIf="reveal">
+  {{ value }}
+</button>
