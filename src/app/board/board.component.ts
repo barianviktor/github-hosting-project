@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   items: number[] = [];
-  optionCount: number = 5;
+  optionCount: number = 6;
   turnCounter: number = 0;
   firstNumberIndex?: number;
   secondNumberIndex?: number;
   correctItems: number[] = [];
-  constructor() {}
+  constructor() {
+    this.startNewGame();
+  }
 
   ngOnInit(): void {}
   startNewGame() {
@@ -51,10 +53,8 @@ export class BoardComponent implements OnInit {
   async makeMove(index: number) {
     if (!this.correctItems.includes(this.items[index])) {
       if (this.firstNumberIndex == undefined) {
-        this.turnCounter++;
         this.firstNumberIndex = index;
       } else if (this.secondNumberIndex == undefined) {
-        this.turnCounter++;
         this.secondNumberIndex = index;
       }
       if (
@@ -68,6 +68,7 @@ export class BoardComponent implements OnInit {
           this.correctItems.push(this.items[this.firstNumberIndex]);
         }
         await new Promise((r) => setTimeout(r, 1000));
+        this.turnCounter++;
 
         this.firstNumberIndex = undefined;
         this.secondNumberIndex = undefined;

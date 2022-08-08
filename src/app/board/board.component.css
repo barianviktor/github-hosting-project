@@ -1,10 +1,52 @@
 main {
-    display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
-    grid-gap: 0px;
+    max-width: 900px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
   
 app-card {
-    border: 1px gray solid;
-    height: 200px;
+    position: relative;
+    height: 0;
+    display: inline-block;
+    width: 25%;
+    height: 100px;
+    
+}
+.header{
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+.header * {
+    display: block;
+    margin:15px auto;
+    text-align: center;
+    letter-spacing: 1.2px;
+    
+}
+h1{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header button{
+    padding:10px 15px;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.336);
+    color: rgb(235, 235, 235);
+    background-color:#3a87ec;
+    font-weight: 600;
+    border: 1px solid #3a87ec;
+    border-radius: 5px;
+}
+.gameData{
+    max-width: 900px;
+    width: 100%;
+    color: white;
+    font-weight: 600;
+    margin: 25px auto;
+    text-align: center;
 }
